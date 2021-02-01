@@ -1,0 +1,49 @@
+{{ $baseurl := .Site.BaseURL }}
+<main role="main" class="homepage">
+
+  {{ partial "hero.html" . }}
+
+  <!-- <h1 class="headline">Recent Posts</h1> -->
+  <h1 class="headline">ls -Al | more</h1>
+
+  
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) (or .Site.Params.paginate 3) }}
+<div class="article-list">
+  {{ range $paginator.Pages }}
+    {{ partial "article-list-item.html" . }}
+  {{ end }}
+</div>
+
+  {{ partial "paginator.html" $paginator }}
+
+{{ with .Site.Taxonomies.categories }}
+
+  <h1 class="headline">Categories</h1>
+
+  <section class="categories">
+    {{ range $name, $value := . }}
+    <h2 class="category">
+      <a href="{{ $baseurl }}/categories/{{ $name | urlize }}">{{ humanize $name | title }}</a>
+      <small>({{ .Count }})</small>
+    </h2>
+    {{ end }}
+  </section>
+
+{{ end }}
+
+{{ with .Site.Taxonomies.tags }}
+
+  <h1 class="headline">Tags</h1>
+
+  <section class="tags">
+    {{ range $name, $value := . }}
+    <span class="tag">
+      <a href="{{ $baseurl }}tags/{{ $name | urlize }}">{{ $name }}</a>
+      <small>({{ .Count }})</small>
+    </span>
+    {{ end }}
+  </section>
+
+{{ end }}
+
+</main>

@@ -1,0 +1,15 @@
+<article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <!-- <h2 class="headline" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }} (Draft){{ end }}</a></h2> -->
+  {{ $alternate_title := replace .File.BaseFileName "-" " " | title }}
+  <h2 class="headline" itemprop="headline"><a href="{{ .RelPermalink }}">{{ .Title  | default $alternate_title }}</a></h2>
+
+  <div class="meta">
+    <span class="key">-rwxr-xr--  {{ .WordCount }} words</span>
+{{ if not .Date.IsZero }}
+    <span class="val"><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02 15:04:05" }}">{{ .Date.Format "2006-01-02 15:04:05" }}</time></span>
+{{ end }}
+  </div>
+  <section class="summary">
+    {{ .Summary }} {{ if .Truncated }} <a href="{{ .RelPermalink }}"> cat...</a>{{ end }}
+  </section>
+</article>

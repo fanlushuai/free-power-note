@@ -1,0 +1,78 @@
+name: github pages
+
+# on: repository_dispatch
+# on: push
+
+env:
+  RESOURCES_PATH: .github/resources/
+  PUBLIC_REPO_PATH: .github/resources/publicRepo/
+  HUGO_PATH: .github/resources/hugo/
+  SCRIPTS_PATH: .github/resources/scripts/
+# 一个job 一个runner，job内的任务顺序执行
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Look up dir
+        run: |
+          find . -print | grep -v -e '.\.git/.*$' | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+
+      - name: Add front matter `draft` if not exsit
+        run: |
+           chmod +x ${SCRIPTS_PATH}add_default_draft.sh
+           sh ${SCRIPTS_PATH}add_default_draft.sh
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.79.1"
+    
+      - name: Hugo Render `public` dir
+        run: |
+          hugo --minify \
+          --config ${HUGO_PATH}/hugo-config.yaml \
+          --themesDir ${HUGO_PATH}/themes/
+
+      - name : Clean no referrence imgs 
+        run: |
+           chmod +x ${SCRIPTS_PATH}clean_imgs.sh
+           sh ${SCRIPTS_PATH}clean_imgs.sh
+           rm -rf img/no-ref/
+
+        # run: hugo --verbose --config ${HUGO_PATH}/hugo-config.yaml
+      #不让hugo挂载图片目（他会自动复制全部，此处需要排除一些，所以自己复制）
+      - name: Add img to `public` dir
+        run: |
+          rsync -av --progress img public --exclude clean_imgs.sh --exclude no-ref
+          find . -print | grep -v -e '.\.git/.*$' | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+
+      # 本地管理一些目标站点的文件，readme，cname
+      - name: Add publicRepo files to `public` dir
+        run: |
+          cp -rf ${PUBLIC_REPO_PATH}/. public/
+          find . -print | grep -v -e '.\.git/.*$' | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+
+      - name: Image compress
+        uses: calibreapp/image-actions@1.1.0
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          jpegQuality: "80"
+          jpegProgressive: false
+          pngQuality: "60"
+          webpQuality: "80"
+          compressOnly: true
+
+      - name: Push `public` dir to github.io
+        uses: fanlushuai/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: "xxxxxxxxx自己github的develop-token xxxxxxx"
+        with:
+          source-directory: "public"
+          destination-github-username: "xxx"
+          destination-repository-name: "xxx"
+          user-email: "xxx"
+          target-branch: master
+          commit-message: robot
+          final-push: "only source"

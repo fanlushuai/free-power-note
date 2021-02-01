@@ -1,0 +1,17 @@
+{{ if gt .TotalPages 1 }}
+  <nav class="paginator">
+    {{ if .HasPrev }}
+    <a class="nav-left" href="{{ .Prev.URL }}">&lt; Ctrl b</a>
+    {{ else }}
+    <span class="nav-left faded">&lt; Ctrl b</span>
+    {{ end }}
+
+    <span>{{ .PageNumber}} / {{ .TotalPages }}</span>
+
+    {{ if .HasNext }}
+    <a class="nav-right" href="{{ .Next.URL }}">Ctrl f &gt;</a>
+    {{ else }}
+    <span class="nav-right faded">Ctrl f &gt;</span>
+    {{ end }}
+  </nav>
+{{ end }}

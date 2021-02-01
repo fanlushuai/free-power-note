@@ -1,0 +1,73 @@
+baseURL: xxxxxxxxxxxxxx填上自己的域名
+module:
+  mounts:
+    - source: docs
+      target: content
+    # # 不让hugo挂载图片目（他会自动复制全部，此处需要排除一些，所以自己复制）,取消，采用忽略文件的配置
+    # - source: img
+    #   target: static/img
+
+    # - source: themes/static
+    #   target: static
+    # - source: themes/img
+    #   target: static/img
+    - source: themes/base16/layouts
+      target: layouts
+
+# # hugo忽略，挂载的目录内的子目录和文件.好像还是会复制，只是会挂载
+# ignoreFiles:
+#   - "img/no-ref/\\.*"
+googleAnalytics: "UA-1800000-1"  # 填上自己的google分析
+theme: base16
+summaryLength: 168
+hasCJKLanguage : true 
+title: "Auh"
+subtitle: ""
+description: ""
+keywords: "java 程序员 python shell backend docker go"
+author: "xxx"
+timezone: "Asia/Shanghai"
+
+# 参考https://github.com/heartnn/hugo-theme-test
+# https://gohugo.io/getting-started/configuration/
+disablePathToLower: true
+
+# frontmatter:
+#   date: 
+#     - :filename
+#     - :default
+cascade:
+  - target: 
+     kind: section
+    tag: "plan"
+  - target: 
+     kind: page
+    tags: "planA"
+
+params:
+  paginate: 3
+  mainSections:
+    - coder  // 填上自己笔记的分类，此处只是例子
+    - fisher
+    - lifelog
+    - preject
+    - think
+    - play
+    - plan
+    - life
+    - tool
+
+  enableGitalk: true
+  Gitalk:
+    clientID: "xxxx" # Your client ID
+    clientSecret: "xxx" # Your client secret
+    repo: "xxx" # The repo to store comments
+    owner: "xxxx" # Your GitHub ID
+    admin: "xxxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+    id: "location.pathname" # The unique id of the page.
+    labels: "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+    perPage: 15 # Pagination size, with maximum 100.
+    pagerDirection: "last" # Comment sorting direction, available values are 'last' and 'first'.
+    createIssueManually: true # If it is 'false', it is auto to make a Github issue when the administrators login.
+    distractionFreeMode: false # Ena
+

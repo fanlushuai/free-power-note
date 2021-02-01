@@ -1,0 +1,7 @@
+{
+  "noteSync.enableNoteSync": true,
+  "noteSync.delayTime": 30000,
+  "noteSync.pullStatusMessage": "Note <-- git repo",
+  "noteSync.pushStatusMessage": "Note --> git repo",
+  "noteSync.finishStatusMessage": "Note upload complete !!",
+  }

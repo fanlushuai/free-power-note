@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "jsshou.note-sync",
+        "patbenatar.advanced-new-file",
+        "mushan.vscode-paste-image",
+        "mdickin.markdown-shortcuts",
+        "cschleiden.vscode-github-actions",
+        "ms-ceintl.vscode-language-pack-zh-hans",
+        "yzhang.markdown-all-in-one",
+        "ms-vscode-remote.remote-wsl",
+        "tabnine.tabnine-vscode",
+        "vscode-icons-team.vscode-icons",
+        "percygrunwald.vscode-intellij-recent-files",
+        "redhat.vscode-yaml",
+        "yzane.markdown-pdf"
+    ]
+}
