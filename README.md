@@ -8,18 +8,18 @@ clone下来，直接使用vscode，搞起来。
 
 只需要修改如下内容，这套东西就属于你了：
 
-1. [hugo站点的配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/resources/hugo/hugo-config.yaml#L1)
+1. [hugo站点的配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/resources/hugo/hugo-config.yaml#L1)
 
-2. [hugo笔记的section个人配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/resources/hugo/hugo-config.yaml#L49)
+2. [hugo笔记的section个人配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/resources/hugo/hugo-config.yaml#L49)
 
-3. [hugo站点的google分析配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/resources/hugo/hugo-config.yaml#L20)
+3. [hugo站点的google分析配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/resources/hugo/hugo-config.yaml#L20)
 
-4. [hugo的gittalk个人配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/resources/hugo/hugo-config.yaml#L61
+4. [hugo的gittalk个人配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/resources/hugo/hugo-config.yaml#L61
 )
 
-5. [github page仓库的CName配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/resources/publicRepo/CNAME#L1)
+5. [github page仓库的CName配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/resources/publicRepo/CNAME#L1)
 
-6. [向自己的github page仓库，发送静态文件的配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/550a851b0214f420d4929cd0f33624b190e0613e/.github/workflows/hugo-deploy-gh-pages.yml#L67
+6. [向自己的github page仓库，发送静态文件的配置](https://github.com/fanlushuai/note-with-vscode-github-hugo/blob/3ebef73be42e3c0bcb3f60460418a8fb67ecb560/.github/workflows/hugo-deploy-gh-pages.yml#L67
 ) 
 
 ## 起源
