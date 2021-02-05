@@ -70,4 +70,6 @@ params:
     pagerDirection: "last" # Comment sorting direction, available values are 'last' and 'first'.
     createIssueManually: true # If it is 'false', it is auto to make a Github issue when the administrators login.
     distractionFreeMode: false # Ena
+    
+buildFuture: true # 当时间格式单纯为“2020-01-10 23:48:25”，需要带时区，hugo认为你应该带时区。如果没带可能会认为是未来的时间。从而不发布。
 
