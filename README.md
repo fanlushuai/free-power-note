@@ -60,3 +60,13 @@ markor：手机端阅读器。
 https://github.com/gsantner/markor/issues/884
 
 3. 本来想用坚果md.来实现手机端查阅。但是发现图片无法处理。坚果md给的图片是在是不太灵活。
+
+## 备注
+此项目只是一个简单组合架子，自己在实际使用过程中已经逐渐丰富。简单说一个全面的设计框架，可以参考搞起来。如有疑问，可以交流。
+
+笔记结构设计：以 dailynote ，和 dailytodo ，为主线，分别，积累知识结构，和事务安排。等等。ci 和博客主题配置。
+电脑端 ：vscode ，foam （双链） notesync （同步，触发 ci ）, 等。paste image （粘图）, markdown all in one(语法快速输入)
+服务器：git ，坚果云
+安卓：markor ，fordersync
+
+特点，需要自己组装和打磨。浪费时间。不过，内容非常纯粹。借助 vscode ，shell 等，随便搞。充分施展程序员的个性。构建过程花时间，但是搞完之后，一直爽。
