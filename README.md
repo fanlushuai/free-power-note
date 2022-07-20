@@ -10,8 +10,8 @@
 **远离复杂**。将复杂交给机器，一劳永逸。在vscode编辑器上，编写纯粹内容，ctrl+s，自动触发插件note-sync（forkd）后台上传到github私有笔记仓库。在github私有仓库，触发工作流。在runner云端机器上下载最纯粹的数据，执行shell脚本，进行由纯粹变复杂的操作。丰富原始内容中的数据格式部分，图片路径重映射，满足hugo模板引擎和未来博客图片路径需要。引用hugo模板引擎进行渲染，产出博客网页静态文件。且将最后单纯的博客静态文件内容转发到另外一个github公开的page仓库。
 
 ## 组件概括 - 这是工匠精神的打磨过程
-- pc编辑器：vscode ，foam（双链） ，note-sync-forked（自动同步），markdown all in one（快捷输入md语法），paste-image（图片处理），wordcount（字数统计），vscode-wordcount-cjk，todo-tree，vscode-todo-highlight，local-history，bookmarks，vim键位融合。
-- 云存储和同步：坚果云，github private repo
+- pc编辑器：vscode编辑平台 ，foam（双链） ，note-sync-forked（自动同步），markdown all in one（快捷输入md语法），paste-image（图片处理），wordcount（字数统计），vscode-wordcount-cjk，todo-tree，vscode-todo-highlight，local-history，bookmarks，vim键位融合。
+- 云存储和同步：坚果云服务，github private repo
 - 云端构建：github workflow，shell脚本格式转换， hugo， base64 theme，github page，5元域名
 - 安卓端：folder sync同步， markor（可嵌入语法阅读编辑器） 
 
