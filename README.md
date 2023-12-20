@@ -10,10 +10,28 @@
 **远离复杂**。将复杂交给机器，一劳永逸。在vscode编辑器上，编写纯粹内容，ctrl+s，自动触发插件note-sync（forkd）后台上传到github私有笔记仓库。在github私有仓库，触发工作流。在runner云端机器上下载最纯粹的数据，执行shell脚本，进行由纯粹变复杂的操作。丰富原始内容中的数据格式部分，图片路径重映射，满足hugo模板引擎和未来博客图片路径需要。引用hugo模板引擎进行渲染，产出博客网页静态文件。且将最后单纯的博客静态文件内容转发到另外一个github公开的page仓库。
 
 ## 组件
+```mermaid
+    graph LR
+
+    s(原始 文本 & 图片)--->vscode[vscode]
+
+    vscode[vscode] --->nc((note sync)) -.->github[github]
+
+    github[github]--workflow-->build[处理草稿 && 图片压缩 build blog by hugo & push html css to public repo  ]-->pages[github pages]--->cdn[Cloudflare CDN 加速]
+
+    s(原始 文本 & 图片)---> jpc((坚果云PC客户端)) -.-> jp[坚果云盘]
+
+    m[markor]<---f((folder sync)) <-.- jp[坚果云盘]
+   
+    bk(公开笔记的博客)--->cdn[Cloudflare CDN 加速]
+```
+
 - pc编辑器：vscode编辑平台 ，foam（双链） ，note-sync-forked（自动同步），markdown all in one（快捷输入md语法），paste-image（图片处理），wordcount（字数统计），vscode-wordcount-cjk，todo-tree，vscode-todo-highlight，local-history，bookmarks，vim键位融合。
 - 云存储和同步：坚果云服务，github private repo
 - 云端构建：github workflow，shell脚本格式转换， hugo， base64 theme，github page，5元域名
 - 安卓端：folder sync同步， markor（可嵌入语法阅读编辑器） 
+
+
 
 ## 需求和解决思路
 1. 为了保障对操作理解和诉求。高度自定义和随意性以及自我可创造性。引用vscode编辑器，丰富的插件系统，以及高度的可自定义，工作空间特性。具备可以解决的所有自己的想法的基础条件。甩了市面上大部分md编辑器无数条街。
